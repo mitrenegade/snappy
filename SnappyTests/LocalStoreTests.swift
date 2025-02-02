@@ -51,7 +51,7 @@ final class LocalStoreTests: XCTestCase {
         store.setup(gardenID: "test")
         try await store.loadGarden()
 
-        let image = UIImage(named: "peas")!
+        let image = UIImage(named: "peas1")!
         _ = try await store.createPhoto(image: image)
         XCTAssertEqual(store.allPhotos.count, 1)
     }
@@ -62,7 +62,7 @@ final class LocalStoreTests: XCTestCase {
         store.setup(gardenID: "test")
         try await store.loadGarden()
 
-        let image = UIImage(named: "peas")!
+        let image = UIImage(named: "peas1")!
         _ = try await store.createPhoto(image: image)
         let expectation = self.expectation(description: "Store subscription")
         let _ = store.allPhotosPublisher.handleEvents(receiveRequest:  { subscriptions in
@@ -79,7 +79,7 @@ final class LocalStoreTests: XCTestCase {
         try await store.loadGarden()
 
         let plant = try await store.createPlant(name: "abc", type: .cucumber, category: .cucurbit)
-        let image = UIImage(named: "peas")!
+        let image = UIImage(named: "peas1")!
         let photo = try await store.createPhoto(image: image)
 
         let snap = try await store.createSnap(plant: plant, photo: photo, start: .start, end: .end)
@@ -105,7 +105,7 @@ final class LocalStoreTests: XCTestCase {
         try await store.loadGarden()
 
         let plant = try await store.createPlant(name: "abc", type: .cucumber, category: .cucurbit)
-        let image = UIImage(named: "peas")!
+        let image = UIImage(named: "peas1")!
         let photo = try await store.createPhoto(image: image)
         let snap = try await store.createSnap(plant: plant, photo: photo, start: .start, end: .end)
 
@@ -142,7 +142,7 @@ final class LocalStoreTests: XCTestCase {
 
         let plant1 = try await store.createPlant(name: "abc", type: .cucumber, category: .cucurbit)
         let plant2 = try await store.createPlant(name: "def", type: .cucumber, category: .cucurbit)
-        let image = UIImage(named: "peas")!
+        let image = UIImage(named: "peas1")!
         let photo = try await store.createPhoto(image: image)
         let snap = try await store.createSnap(plant: plant1, photo: photo, start: .start, end: .end)
 

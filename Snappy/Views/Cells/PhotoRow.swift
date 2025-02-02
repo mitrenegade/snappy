@@ -20,7 +20,7 @@ struct PhotoRow: View {
     var body: some View {
         HStack {
             if AIRPLANE_MODE {
-                Image("peas")
+                Image("peas1")
                     .resizable()
                     .frame(width: imageSize.width, height: imageSize.height)
                     .aspectRatio(contentMode: .fit)
