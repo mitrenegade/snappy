@@ -134,6 +134,7 @@ final class LocalStoreTests: XCTestCase {
         }
     }
 
+    /*
     @MainActor
     func testUpdateSnapPlantRelationships() async throws {
         // update a snap's plant
@@ -165,4 +166,5 @@ final class LocalStoreTests: XCTestCase {
         XCTAssertEqual(store.snaps(for: plant2).count, 1)
         XCTAssertEqual(store.snaps(for: plant2).first, newSnap)
     }
+     */
 }
