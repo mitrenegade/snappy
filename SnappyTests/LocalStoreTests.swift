@@ -27,7 +27,7 @@ final class LocalStoreTests: XCTestCase {
 
     @MainActor
     func testLoadGarden() async throws {
-        store.setup(gardenID: "test")
+        store.setup(id: "test")
         try await store.loadGarden()
         XCTAssertFalse(store.isLoading)
         var pathComponents = store.imageBaseURL.pathComponents
@@ -39,7 +39,7 @@ final class LocalStoreTests: XCTestCase {
 
     @MainActor
     func testCreatePlant() async throws {
-        store.setup(gardenID: "test")
+        store.setup(id: "test")
         try await store.loadGarden()
 
         _ = try await store.createPlant(name: "abc", type: .cucumber, category: .cucurbit)
@@ -48,7 +48,7 @@ final class LocalStoreTests: XCTestCase {
 
     @MainActor
     func testCreatePhoto() async throws {
-        store.setup(gardenID: "test")
+        store.setup(id: "test")
         try await store.loadGarden()
 
         let image = UIImage(named: "peas1")!
@@ -75,7 +75,7 @@ final class LocalStoreTests: XCTestCase {
 
     @MainActor
     func testRelationship() async throws {
-        store.setup(gardenID: "test")
+        store.setup(id: "test")
         try await store.loadGarden()
 
         let plant = try await store.createPlant(name: "abc", type: .cucumber, category: .cucurbit)
@@ -91,7 +91,7 @@ final class LocalStoreTests: XCTestCase {
 
     @MainActor
     func testPurge() async throws {
-        store.setup(gardenID: "test")
+        store.setup(id: "test")
         try await store.loadGarden()
         XCTAssertTrue(store.allPlants.isEmpty)
         XCTAssertTrue(store.allPhotos.isEmpty)
@@ -101,7 +101,7 @@ final class LocalStoreTests: XCTestCase {
     @MainActor
     func testUpdateSnapCoordinates() async throws {
         // update a snap's coordinates
-        store.setup(gardenID: "test")
+        store.setup(id: "test")
         try await store.loadGarden()
 
         let plant = try await store.createPlant(name: "abc", type: .cucumber, category: .cucurbit)
@@ -137,7 +137,7 @@ final class LocalStoreTests: XCTestCase {
     @MainActor
     func testUpdateSnapPlantRelationships() async throws {
         // update a snap's plant
-        store.setup(gardenID: "test")
+        store.setup(id: "test")
         try await store.loadGarden()
 
         let plant1 = try await store.createPlant(name: "abc", type: .cucumber, category: .cucurbit)
