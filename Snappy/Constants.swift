@@ -8,7 +8,7 @@
 
 import Foundation
 
-let TESTING = false
+let TESTING = true
 let AIRPLANE_MODE = true
 
 struct Global {
@@ -23,7 +23,7 @@ struct Global {
     }
      */
 
-    // Local storage
+    // Local storageapp
 
     /// Returns a singleton `Store`
     static let store = LocalStore()

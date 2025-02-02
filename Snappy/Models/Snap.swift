@@ -6,8 +6,9 @@
 //  Copyright © 2020 RenderApps LLC. All rights reserved.
 //
 
-import FirebaseFirestore
-import FirebaseFirestoreSwift
+//import FirebaseFirestore
+//import FirebaseFirestoreSwift
+import Foundation
 
 /// An snapshot of a plant at a single instance in time.
 struct Snap: Identifiable, Codable, Equatable, Hashable {
@@ -17,7 +18,7 @@ struct Snap: Identifiable, Codable, Equatable, Hashable {
     var plantId: String = ""
     var start: NormalizedCoordinate
     var end: NormalizedCoordinate
-    var notes: String? = ""
+    var notes: String?
 
     init(id: String? = nil, plantId: String?, photoId: String, start: NormalizedCoordinate, end: NormalizedCoordinate) {
         self.id = id ?? UUID().uuidString

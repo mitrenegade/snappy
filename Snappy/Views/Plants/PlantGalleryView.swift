@@ -38,8 +38,7 @@ struct PlantGalleryView<T>: View where T: Store {
                 if TESTING {
                     Text("PlantGalleryView: \(plant.name)")
                 }
-                PlantBasicView(plant: plant, photo:
-                                store.photos(for: plant).first)
+                PlantBasicView(plant: plant)
                 SnapsListView(plant: plant, store: store)
             }
             .navigationBarBackButtonHidden(true)
