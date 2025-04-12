@@ -23,7 +23,7 @@ struct Global {
     }
      */
 
-    // Local storage
+    // Local storageapp
 
     /// Returns a singleton `Store`
     static let store = LocalStore()

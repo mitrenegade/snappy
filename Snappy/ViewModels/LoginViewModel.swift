@@ -11,10 +11,14 @@ import RenderCloud
 class LoginViewModel {
 
     private lazy var auth: CloudAuthService = {
-        RenderAuthService(delegate: self)
+//        if AIRPLANE_MODE {
+//            MockAuthService()
+//        } else {
+            RenderAuthService(delegate: self)
+//        }
     }()
 
-    private lazy var store: AuthStore = AuthStore.shared
+    private lazy var authStore: AuthStore = AuthStore.shared
 
     func signUp(email: String,
                 password: String) async throws {
@@ -23,11 +27,20 @@ class LoginViewModel {
 
     func signIn(email: String,
                 password: String) async throws {
-        _ = try await auth.login(username: email, password: password)
+        if AIRPLANE_MODE {
+            let user = MockUser(id: "123", username: email)
+            userDidChange(user: user)
+        } else {
+            _ = try await auth.login(username: email, password: password)
+        }
     }
 
     func signOut() {
-        try? auth.logout()
+        if AIRPLANE_MODE {
+            self.userDidChange(user: nil)
+        } else {
+            try? auth.logout()
+        }
     }
 
     init() {
@@ -44,10 +57,10 @@ extension LoginViewModel: CloudAuthServiceDelegate {
     func userDidChange(user: RenderCloud.User?) {
         if let user = user {
             // logged in with a user
-            store.user = User(user: user)
+            authStore.user = User(user: user)
         }
         else {
-            store.user = nil
+            authStore.user = nil
             print("User signed out.")
         }
     }

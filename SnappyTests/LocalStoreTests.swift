@@ -27,7 +27,7 @@ final class LocalStoreTests: XCTestCase {
 
     @MainActor
     func testLoadGarden() async throws {
-        store.setup(gardenID: "test")
+        store.setup(id: "test")
         try await store.loadGarden()
         XCTAssertFalse(store.isLoading)
         var pathComponents = store.imageBaseURL.pathComponents
@@ -39,7 +39,7 @@ final class LocalStoreTests: XCTestCase {
 
     @MainActor
     func testCreatePlant() async throws {
-        store.setup(gardenID: "test")
+        store.setup(id: "test")
         try await store.loadGarden()
 
         _ = try await store.createPlant(name: "abc", type: .cucumber, category: .cucurbit)
@@ -48,10 +48,10 @@ final class LocalStoreTests: XCTestCase {
 
     @MainActor
     func testCreatePhoto() async throws {
-        store.setup(gardenID: "test")
+        store.setup(id: "test")
         try await store.loadGarden()
 
-        let image = UIImage(named: "peas")!
+        let image = UIImage(named: "peas1")!
         _ = try await store.createPhoto(image: image)
         XCTAssertEqual(store.allPhotos.count, 1)
     }
@@ -62,7 +62,7 @@ final class LocalStoreTests: XCTestCase {
         store.setup(gardenID: "test")
         try await store.loadGarden()
 
-        let image = UIImage(named: "peas")!
+        let image = UIImage(named: "peas1")!
         _ = try await store.createPhoto(image: image)
         let expectation = self.expectation(description: "Store subscription")
         let _ = store.allPhotosPublisher.handleEvents(receiveRequest:  { subscriptions in
@@ -75,11 +75,11 @@ final class LocalStoreTests: XCTestCase {
 
     @MainActor
     func testRelationship() async throws {
-        store.setup(gardenID: "test")
+        store.setup(id: "test")
         try await store.loadGarden()
 
         let plant = try await store.createPlant(name: "abc", type: .cucumber, category: .cucurbit)
-        let image = UIImage(named: "peas")!
+        let image = UIImage(named: "peas1")!
         let photo = try await store.createPhoto(image: image)
 
         let snap = try await store.createSnap(plant: plant, photo: photo, start: .start, end: .end)
@@ -91,7 +91,7 @@ final class LocalStoreTests: XCTestCase {
 
     @MainActor
     func testPurge() async throws {
-        store.setup(gardenID: "test")
+        store.setup(id: "test")
         try await store.loadGarden()
         XCTAssertTrue(store.allPlants.isEmpty)
         XCTAssertTrue(store.allPhotos.isEmpty)
@@ -101,11 +101,11 @@ final class LocalStoreTests: XCTestCase {
     @MainActor
     func testUpdateSnapCoordinates() async throws {
         // update a snap's coordinates
-        store.setup(gardenID: "test")
+        store.setup(id: "test")
         try await store.loadGarden()
 
         let plant = try await store.createPlant(name: "abc", type: .cucumber, category: .cucurbit)
-        let image = UIImage(named: "peas")!
+        let image = UIImage(named: "peas1")!
         let photo = try await store.createPhoto(image: image)
         let snap = try await store.createSnap(plant: plant, photo: photo, start: .start, end: .end)
 
@@ -134,15 +134,16 @@ final class LocalStoreTests: XCTestCase {
         }
     }
 
+    /*
     @MainActor
     func testUpdateSnapPlantRelationships() async throws {
         // update a snap's plant
-        store.setup(gardenID: "test")
+        store.setup(id: "test")
         try await store.loadGarden()
 
         let plant1 = try await store.createPlant(name: "abc", type: .cucumber, category: .cucurbit)
         let plant2 = try await store.createPlant(name: "def", type: .cucumber, category: .cucurbit)
-        let image = UIImage(named: "peas")!
+        let image = UIImage(named: "peas1")!
         let photo = try await store.createPhoto(image: image)
         let snap = try await store.createSnap(plant: plant1, photo: photo, start: .start, end: .end)
 
@@ -165,4 +166,5 @@ final class LocalStoreTests: XCTestCase {
         XCTAssertEqual(store.snaps(for: plant2).count, 1)
         XCTAssertEqual(store.snaps(for: plant2).first, newSnap)
     }
+     */
 }

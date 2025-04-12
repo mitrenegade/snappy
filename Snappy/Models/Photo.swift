@@ -25,6 +25,6 @@ struct Photo: Identifiable, Codable, Hashable {
     }
     
     var dateString: String {
-        return date.description
+        return date.formatted()
     }
 }

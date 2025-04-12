@@ -25,10 +25,11 @@ struct SnapRow: View {
                 .onAppear {
                     imageLoader.load(imageName: photo.id)
                 }
+                .cornerRadius(5)
 
-            VStack {
+            VStack(alignment: .leading) {
                 if !dateString.isEmpty {
-                    Text("Taken: \(dateString)")
+                    Text("\(dateString)")
                 }
                 if let notes {
                     Text("Notes: \(notes)")

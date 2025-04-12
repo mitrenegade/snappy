@@ -12,38 +12,20 @@ import SwiftUI
 /// Shows individual details for a single plant
 struct PlantBasicView: View {
     private let plant: Plant
-    private let photo: Photo?
 
-    private let imageSize = CGSize(width: 200, height: 200)
-
-    init(plant: Plant,
-         photo: Photo?
+    init(plant: Plant
     ) {
         self.plant = plant
-        self.photo = photo
     }
 
     var body: some View {
         VStack {
-            imageView
             Text(plant.name)
-                .bold()
+                .font(.title)
             Text(plant.category.rawValue)
+                .font(.title3)
             Text(plant.type.rawValue)
-        }
-    }
-
-    private var imageView: some View {
-        Group {
-            if let name = photo?.id {
-                let frame = CGSize(width: imageSize.width, height: imageSize.height)
-                let placeholder = Text("Loading...")
-                let imageLoader = Global.imageLoaderFactory()
-                AsyncImageView(imageLoader: imageLoader,
-                                      frame: frame,
-                                      placeholder: placeholder)
-                .aspectRatio(contentMode: .fill)
-            }
+                .font(.title3)
         }
     }
 }

@@ -26,14 +26,20 @@ struct PlantRow: View {
                     .onAppear {
                         imageLoader.load(imageName: name)
                     }
+                    .cornerRadius(5)
             } else {
                 Image(systemName: "camera")
             }
-            Text($plantRowViewModel.name.wrappedValue)
-            Text($plantRowViewModel.categoryString.wrappedValue)
-                .foregroundColor(Color($plantRowViewModel.categoryColor.wrappedValue))
-            Text($plantRowViewModel.typeString.wrappedValue)
-                .foregroundColor(Color($plantRowViewModel.typeColor.wrappedValue))
+            VStack(alignment: .leading) {
+                Text($plantRowViewModel.name.wrappedValue)
+                    .font(.title3)
+                Text($plantRowViewModel.categoryString.wrappedValue)
+//                    .foregroundColor(Color($plantRowViewModel.categoryColor.wrappedValue))
+                    .font(.subheadline)
+                Text($plantRowViewModel.typeString.wrappedValue)
+//                    .foregroundColor(Color($plantRowViewModel.typeColor.wrappedValue))
+                    .font(.subheadline)
+            }
         }
     }
 }

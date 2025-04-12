@@ -270,9 +270,9 @@ class LocalStore: Store, ObservableObject {
 
     /// Updates a snap's relationship with a photo
     /// - Returns false if the update failed
-    func updateSnap(snap: Snap, plant: Plant) async throws -> Snap? {
-        return nil
-    }
+//    func updateSnap(snap: Snap, plant: Plant) async throws -> Snap? {
+//        return nil
+//    }
 
     // MARK: - Caching
 

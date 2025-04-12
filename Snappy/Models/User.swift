@@ -9,8 +9,8 @@
 import RenderCloud
 
 class User: Decodable, ObservableObject, RenderCloud.User {
-    var id: String
-    var username: String
+    let id: String
+    let username: String
 
     init(user: RenderCloud.User) {
         self.id = user.id

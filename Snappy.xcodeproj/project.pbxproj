@@ -36,6 +36,7 @@
 		8E5FE329246E7B0300622DDA /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5FE328246E7B0300622DDA /* HomeView.swift */; };
 		8E5FE32C246E800A00622DDA /* TabsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5FE32B246E800A00622DDA /* TabsRouter.swift */; };
 		8E5FE32F2471F96000622DDA /* PhotoEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5FE32E2471F96000622DDA /* PhotoEnvironment.swift */; };
+		8E65EEA82D50301100B25349 /* MockAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E65EEA72D50301100B25349 /* MockAuthService.swift */; };
 		8E74F08A244D13F000F5A507 /* Stub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E74F089244D13F000F5A507 /* Stub.swift */; };
 		8E74F095244D20C200F5A507 /* CameraRoot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E74F094244D20C200F5A507 /* CameraRoot.swift */; };
 		8E74F097244D21F500F5A507 /* CaptureImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E74F096244D21F500F5A507 /* CaptureImageView.swift */; };
@@ -130,6 +131,7 @@
 		8E5FE328246E7B0300622DDA /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		8E5FE32B246E800A00622DDA /* TabsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabsRouter.swift; sourceTree = "<group>"; };
 		8E5FE32E2471F96000622DDA /* PhotoEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoEnvironment.swift; sourceTree = "<group>"; };
+		8E65EEA72D50301100B25349 /* MockAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAuthService.swift; sourceTree = "<group>"; };
 		8E74F089244D13F000F5A507 /* Stub.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stub.swift; sourceTree = "<group>"; };
 		8E74F094244D20C200F5A507 /* CameraRoot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraRoot.swift; sourceTree = "<group>"; };
 		8E74F096244D21F500F5A507 /* CaptureImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureImageView.swift; sourceTree = "<group>"; };
@@ -239,6 +241,7 @@
 			children = (
 				8E74F089244D13F000F5A507 /* Stub.swift */,
 				8E3684D32B2BFFE100B228F3 /* MockStore.swift */,
+				8E65EEA72D50301100B25349 /* MockAuthService.swift */,
 			);
 			path = Stubs;
 			sourceTree = "<group>";
@@ -696,6 +699,7 @@
 				8EF491BE2B53BF76009F12C0 /* PhotoGalleryView.swift in Sources */,
 				8E5FE32F2471F96000622DDA /* PhotoEnvironment.swift in Sources */,
 				8E3ABF15244EB50E00FF378B /* PhotoRowViewModel.swift in Sources */,
+				8E65EEA82D50301100B25349 /* MockAuthService.swift in Sources */,
 				8E3684C82B27CE3100B228F3 /* Constants.swift in Sources */,
 				8E74F097244D21F500F5A507 /* CaptureImageView.swift in Sources */,
 				8EC417262BAE964F0076DC1C /* AddImageHelperLayer.swift in Sources */,
@@ -874,9 +878,10 @@
 			baseConfigurationReference = 6ED3DE204951880052FEF49A /* Pods-Snappy.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Snappy/Preview Content\"";
-				DEVELOPMENT_TEAM = H799H8B8DD;
+				DEVELOPMENT_TEAM = TR7JGRM44S;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Snappy/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
@@ -886,6 +891,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = io.renderapps.Snappy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -896,9 +902,10 @@
 			baseConfigurationReference = A6E6F5742B7706DAB9651E09 /* Pods-Snappy.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Snappy/Preview Content\"";
-				DEVELOPMENT_TEAM = H799H8B8DD;
+				DEVELOPMENT_TEAM = TR7JGRM44S;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Snappy/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
@@ -908,6 +915,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = io.renderapps.Snappy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
